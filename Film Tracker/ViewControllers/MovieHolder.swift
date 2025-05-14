@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MovieHolder: AnyObject {
-    var movieStore: MovieStore { get set }
+    var movieStore: MovieStore! { get set }
 }
