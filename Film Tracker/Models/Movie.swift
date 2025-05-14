@@ -10,6 +10,7 @@ struct Movie {
     let releaseYear: Int
     let rating: Double
     let coverUrl: String
+    var isFavorite: Bool = false
     
     static func getMovies() -> [Movie] {
         [
