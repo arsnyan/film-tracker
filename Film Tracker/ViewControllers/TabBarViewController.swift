@@ -16,6 +16,12 @@ final class TabBarViewController: UITabBarController {
     }
     
     func setupViewControllers() {
-        viewControllers?.forEach { ($0 as? MovieHolder)?.movieStore = movieStore }
+        viewControllers?.forEach { vc in
+            if let moviesListVC = (vc as? UINavigationController)?.topViewController as? MovieHolder {
+                moviesListVC.movieStore = movieStore
+            } else if let favoritesListVC = vc as? MovieHolder {
+                favoritesListVC.movieStore = movieStore
+            }
+        }
     }
 }
