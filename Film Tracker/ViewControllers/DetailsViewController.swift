@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol TableViewControllerUpdateDelegate: AnyObject {
+    func updateData()
+}
+
 class DetailsViewController: UIViewController {
     @IBOutlet var coverImageView: UIImageView!
     @IBOutlet var movieNameLabel: UILabel!
     @IBOutlet var ratingLabel: UILabel!
     @IBOutlet var releaseDateLabel: UILabel!
     
+    weak var delegate: TableViewControllerUpdateDelegate?
+    var movieStore: MovieStore!
     var movie: Movie!
     
     override func viewDidLoad() {
@@ -32,8 +38,9 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func deleteMovieAction(_ sender: Any) {
-    }
-    
-    @IBAction func editMovieAction(_ sender: Any) {
+        guard let idx = movieStore.movies.firstIndex(where: { $0.name == movie.name }) else { return }
+        movieStore.movies.remove(at: idx)
+        delegate?.updateData()
+        navigationController?.popViewController(animated: true)
     }
 }

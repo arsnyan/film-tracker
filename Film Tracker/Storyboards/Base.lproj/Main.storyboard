@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,23 +13,10 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MoviesListViewController" customModule="Film_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-<<<<<<< Updated upstream
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-=======
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="B4P-V7-btz">
->>>>>>> Stashed changes
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-<<<<<<< Updated upstream
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Movies" image="film" catalog="system" id="b5P-9Z-Y2v"/>
-                    <navigationItem key="navigationItem" id="KH6-1H-TqN"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2892" y="-332"/>
-=======
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieCell" id="TWv-CL-ctR">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -37,6 +25,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="csa-8X-U4z" kind="show" id="yOO-wZ-p57"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,16 +36,101 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Movies" image="popcorn" catalog="system" id="twO-d4-dGb"/>
-                    <navigationItem key="navigationItem" title="Movies" id="KH6-1H-TqN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Tss-bZ-96a"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="csa-8X-U4z" kind="show" identifier="showDetails" id="OYm-Y1-gkn"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Movies" id="KH6-1H-TqN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2874" y="-363"/>
+            <point key="canvasLocation" x="2920" y="-731"/>
+        </scene>
+        <!--Add Movie View Controller-->
+        <scene sceneID="sVD-XB-M03">
+            <objects>
+                <viewController id="Lhu-Mo-57J" customClass="AddMovieViewController" customModule="Film_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fFi-V3-aP0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="R43-Ch-FyW">
+                                <rect key="frame" x="16" y="75.000000000000014" width="361" height="220.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add movie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqb-Pm-CCN">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="24"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Movie name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-Wt-RMo">
+                                        <rect key="frame" x="0.0" y="40" width="361" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Release year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e2E-16-utl">
+                                        <rect key="frame" x="0.0" y="90" width="361" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="L2H-U6-LKg">
+                                        <rect key="frame" x="0.0" y="140" width="361" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 0.0/10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mno-T9-7xJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="77.666666666666671" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="RZc-Uw-Wws">
+                                                <rect key="frame" x="83.666666666666657" y="0.0" width="279.33333333333337" height="31"/>
+                                                <connections>
+                                                    <action selector="ratingSetAction" destination="Lhu-Mo-57J" eventType="valueChanged" id="Gju-Ha-I5I"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oTP-AV-55j">
+                                        <rect key="frame" x="0.0" y="186" width="361" height="34.333333333333343"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZr-0R-6zO">
+                                                <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Cancel">
+                                                    <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                    <color key="baseBackgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="cancelAction" destination="Lhu-Mo-57J" eventType="touchUpInside" id="IqY-M8-gEa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znm-jW-aqd">
+                                                <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                                <connections>
+                                                    <action selector="saveAction" destination="Lhu-Mo-57J" eventType="touchUpInside" id="oM2-ep-pzP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MfZ-tO-6JS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R43-Ch-FyW" firstAttribute="leading" secondItem="MfZ-tO-6JS" secondAttribute="leading" constant="16" id="PBz-ET-esg"/>
+                            <constraint firstItem="MfZ-tO-6JS" firstAttribute="trailing" secondItem="R43-Ch-FyW" secondAttribute="trailing" constant="16" id="Rvq-9x-u21"/>
+                            <constraint firstItem="R43-Ch-FyW" firstAttribute="top" secondItem="MfZ-tO-6JS" secondAttribute="top" constant="16" id="coE-Fg-Paw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="movieNameTextField" destination="wwU-Wt-RMo" id="OUh-e1-SOp"/>
+                        <outlet property="ratingLabel" destination="Mno-T9-7xJ" id="CDt-k2-wR6"/>
+                        <outlet property="ratingSlider" destination="RZc-Uw-Wws" id="d6V-UW-Irv"/>
+                        <outlet property="releaseYearTextField" destination="e2E-16-utl" id="XxD-QB-yQF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HSv-Ip-R17" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2920" y="738"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="StS-ga-Qda">
@@ -108,18 +184,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="M2O-K6-LeR">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="trash" id="ItW-78-LpF">
-                                <connections>
-                                    <action selector="deleteMovieAction:" destination="csa-8X-U4z" id="JlR-WG-6p6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="edit" id="gPf-Hb-ByV">
-                                <connections>
-                                    <action selector="editMovieAction:" destination="csa-8X-U4z" id="Nxn-3d-jFL"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ItW-78-LpF">
+                            <connections>
+                                <action selector="deleteMovieAction:" destination="csa-8X-U4z" id="JlR-WG-6p6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="coverImageView" destination="Lmp-qb-eqR" id="oig-ZJ-7Rt"/>
@@ -130,7 +199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYi-xF-FaE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3802" y="370"/>
+            <point key="canvasLocation" x="3775" y="2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z3S-KJ-nH9">
@@ -147,44 +216,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8v-7A-lVx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047" y="4"/>
->>>>>>> Stashed changes
         </scene>
-        <!--Item-->
-        <scene sceneID="QIZ-mZ-s74">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FN4-wk-bx5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="G9k-ic-j0D"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="9jU-Kv-bNm">
-                        <rect key="frame" x="0.0" y="118" width="393" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="yj5-CX-B8F" kind="relationship" relationship="rootViewController" id="Ki7-45-EGv"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l05-Oy-oez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="973.28244274809151" y="3.5211267605633805"/>
-        </scene>
-        <!--Tab Bar View Controller-->
+        <!--Movies-->
         <scene sceneID="Vyn-Gk-rwU">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="yj5-CX-B8F" customClass="TabBarViewController" customModule="Film_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="o8X-bJ-52j"/>
+                    <navigationItem key="navigationItem" title="Movies" id="o8X-bJ-52j">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="A7p-qe-VAE">
+                            <connections>
+                                <action selector="addMovieAction:" destination="yj5-CX-B8F" id="D6R-da-fTs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W7V-Ss-snh">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-<<<<<<< Updated upstream
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9Jb-bk-6bB"/>
-=======
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="X9P-tM-kDj"/>
->>>>>>> Stashed changes
                         <segue destination="LXU-cU-idt" kind="relationship" relationship="viewControllers" id="kqg-c8-hIf"/>
+                        <segue destination="Lhu-Mo-57J" kind="presentation" identifier="addMovie" modalPresentationStyle="fullScreen" id="fZu-e7-eUN"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="05j-0j-Vzh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,11 +248,7 @@
         <scene sceneID="Bzr-5B-vM2">
             <objects>
                 <viewController id="LXU-cU-idt" customClass="FavoritesTableViewController" customModule="Film_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-<<<<<<< Updated upstream
-                    <view key="view" contentMode="scaleToFill" id="yIr-ik-egt">
-=======
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="GtC-yh-7pl">
->>>>>>> Stashed changes
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -211,6 +260,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="csa-8X-U4z" kind="show" id="3mw-2k-rje"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -219,26 +271,22 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="7q9-Ji-OkO"/>
-                    <connections>
-                        <segue destination="csa-8X-U4z" kind="show" identifier="showDetails" id="VCA-pv-kGG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWY-Wo-Z3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< Updated upstream
-            <point key="canvasLocation" x="2892" y="339"/>
-=======
-            <point key="canvasLocation" x="2874" y="370"/>
->>>>>>> Stashed changes
+            <point key="canvasLocation" x="2920" y="2"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="OYm-Y1-gkn"/>
+        <segue reference="yOO-wZ-p57"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="popcorn" catalog="system" width="103" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

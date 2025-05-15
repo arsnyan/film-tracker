@@ -15,7 +15,16 @@ final class TabBarViewController: UITabBarController {
         setupViewControllers()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addMovieVC = segue.destination as? AddMovieViewController
+        addMovieVC?.movieStore = movieStore
+    }
+    
     func setupViewControllers() {
         viewControllers?.forEach { ($0 as? MovieHolder)?.movieStore = movieStore }
+    }
+    
+    @IBAction func addMovieAction(_ sender: Any) {
+        performSegue(withIdentifier: "addMovie", sender: sender)
     }
 }
