@@ -22,6 +22,7 @@ final class MoviesListViewController: UITableViewController, MovieHolder {
         guard let row = tableView.indexPathForSelectedRow?.row else { return }
         let detailsVC = segue.destination as? DetailsViewController
         detailsVC?.movie = movieStore.movies[row]
+        detailsVC?.movieStore = movieStore
     }
 }
 
@@ -58,10 +59,8 @@ extension MoviesListViewController {
     }
 }
 
-// MARK: - UITableViewDelegate
-extension MoviesListViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetails", sender: nil)
-        tableView.deselectRow(at: indexPath, animated: true)
+extension MoviesListViewController: TableViewControllerUpdateDelegate {
+    func updateData() {
+        tableView.reloadData()
     }
 }

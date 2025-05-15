@@ -25,6 +25,7 @@ final class FavoritesTableViewController: UITableViewController, MovieHolder {
         guard let row = tableView.indexPathForSelectedRow?.row else { return }
         let detailsVC = segue.destination as? DetailsViewController
         detailsVC?.movie = favoriteMovies[row]
+        detailsVC?.movieStore = movieStore
     }
 }
 
@@ -64,10 +65,8 @@ extension FavoritesTableViewController {
     }
 }
 
-// MARK: - UITableViewDelegate
-extension FavoritesTableViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetails", sender: nil)
-        tableView.deselectRow(at: indexPath, animated: true)
+extension FavoritesTableViewController: TableViewControllerUpdateDelegate {
+    func updateData() {
+        tableView.reloadData()
     }
 }
